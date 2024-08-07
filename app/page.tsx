@@ -1,11 +1,9 @@
-import Image from "next/image";
-import { Button } from "./_components/ui/button";
+import { Button } from "./_components/ui/button"
 
 export default function Home() {
   return (
-
     <div>
-      <Button>Teste</Button>
+      <Button>só de teste</Button>{" "}
     </div>
-  );
+  )
 }
