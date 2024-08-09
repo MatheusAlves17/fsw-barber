@@ -12,6 +12,29 @@ import { db } from "./_lib/prisma"
 import BarbershopItem from "./_components/barbershop-item"
 import Footer from "./_components/footer"
 
+import Cabelo from "@/public/cabelo.svg"
+import Barba from "@/public/barba.svg"
+import Acabamento from "@/public/acabamento.svg"
+import QuickSearch from "./_components/quick-search"
+
+const quickSearch = [
+  {
+    id: "1234",
+    service: "Cabelo",
+    icon: Cabelo,
+  },
+  {
+    id: "2345",
+    service: "Barba",
+    icon: Barba,
+  },
+  {
+    id: "3456",
+    service: "Acabamento",
+    icon: Acabamento,
+  },
+]
+
 export default async function Home() {
   const barbershops = await db.barbershop.findMany()
   const popularBarbershops = await db.barbershop.findMany({
@@ -32,6 +55,11 @@ export default async function Home() {
           <Button size="icon">
             <Search />
           </Button>
+        </div>
+        <div className="mt-3 flex gap-3">
+          {quickSearch.map((item) => (
+            <QuickSearch key={item.service} {...item} />
+          ))}
         </div>
         <div className="relative mt-6 h-[150px] w-full">
           <Image
