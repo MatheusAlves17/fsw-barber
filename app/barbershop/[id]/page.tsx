@@ -1,3 +1,4 @@
+import PhoneItem from "@/app/_components/phone-item"
 import ServiceItem from "@/app/_components/service-item"
 import { Button } from "@/app/_components/ui/button"
 import { db } from "@/app/_lib/prisma"
@@ -34,7 +35,6 @@ async function BarbershopPage({ params }: Params) {
           src={barbershop?.imageUrl}
           fill
           quality={100}
-          objectFit="cover"
           className="object-cover"
         />
 
@@ -75,6 +75,11 @@ async function BarbershopPage({ params }: Params) {
         <h2 className="text-xs font-bold uppercase text-gray-400">Serviços</h2>
         {barbershop?.services.map((item) => (
           <ServiceItem key={item.id} service={item} />
+        ))}
+      </div>
+      <div className="space-y-3 p-5">
+        {barbershop.phones.map((phone) => (
+          <PhoneItem phone={phone} key={phone} />
         ))}
       </div>
     </div>

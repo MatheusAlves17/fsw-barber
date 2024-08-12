@@ -16,9 +16,8 @@ function ServiceItem({ service }: IServiceItemProps) {
           <Image
             alt={service.name}
             src={service.imageUrl}
-            objectFit="cover"
             fill
-            className="rounded-md"
+            className="rounded-md object-cover"
           />
         </div>
         <div className="space-y-2">

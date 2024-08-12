@@ -8,7 +8,6 @@ import Banner from "@/public/banner-01.png"
 
 import { db } from "./_lib/prisma"
 import BarbershopItem from "./_components/barbershop-item"
-import Footer from "./_components/footer"
 
 import QuickSearch from "./_components/quick-search"
 import { quickSearch } from "./_constants/search"
@@ -45,8 +44,7 @@ export default async function Home() {
             src={Banner}
             alt="Agende nos melhores com FSW Barber"
             fill
-            objectFit="cover"
-            className="rounded-xl"
+            className="rounded-xl object-cover"
           />
         </div>
         <BookingItem />
@@ -67,7 +65,6 @@ export default async function Home() {
           ))}
         </div>
       </div>
-      <Footer />
     </div>
   )
 }
