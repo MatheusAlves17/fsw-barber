@@ -1,8 +1,9 @@
+import ButtonSidebar from "@/app/_components/button-sidebar"
 import PhoneItem from "@/app/_components/phone-item"
 import ServiceItem from "@/app/_components/service-item"
 import { Button } from "@/app/_components/ui/button"
 import { db } from "@/app/_lib/prisma"
-import { ChevronLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react"
+import { ChevronLeftIcon, MapPinIcon, StarIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -40,21 +41,17 @@ async function BarbershopPage({ params }: Params) {
 
         <Button
           variant={"secondary"}
-          className="absolute left-2 top-4"
           size={"icon"}
           asChild
+          className="absolute left-2 top-4"
         >
           <Link href={"/"}>
             <ChevronLeftIcon />
           </Link>
         </Button>
-        <Button
-          variant={"secondary"}
-          className="absolute right-2 top-4"
-          size={"icon"}
-        >
-          <MenuIcon />
-        </Button>
+        <div className="absolute right-2 top-4">
+          <ButtonSidebar />
+        </div>
       </div>
       <div className="border-b border-solid p-4">
         <h1 className="text-xl font-bold">{barbershop?.name}</h1>
